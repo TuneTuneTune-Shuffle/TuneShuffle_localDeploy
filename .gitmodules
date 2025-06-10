@@ -1,0 +1,8 @@
+[submodule "FrontEnd"]
+	path = FrontEnd
+	url = https://github.com/TuneTuneTune-Shuffle/FrontEnd.git
+	branch = local
+[submodule "Backend"]
+	path = Backend
+	url = git@github.com:TuneTuneTune-Shuffle/Backend.git
+	branch = local
