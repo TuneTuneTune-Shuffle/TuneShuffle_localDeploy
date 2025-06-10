@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./Backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Backend:/app
+    environment:
+      - SECRET_KEY=jM9_AMRadutNh6nLghTDIy12iyil2VIoscc3xJxrQakVjP3CYqAA3dTC2_csg8xjPLgsrW_dqH1zDnIfP-2GSA
+      - MONGO_URI=mongodb+srv://admin77:tralaleros77@tunetunetuneshuffle.hre3udd.mongodb.net/
+      - DB_NAME=tunetunetune
+
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./FrontEnd
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
