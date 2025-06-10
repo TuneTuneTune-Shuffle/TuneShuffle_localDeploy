@@ -25,3 +25,38 @@ Todo se ejecuta fácilmente usando **Docker** y **Docker Compose**.
 ```bash
 git clone --recurse-submodules https://github.com/TuneTuneTune-Shuffle/TuneShuffle_localDeploy.git
 cd TuneShuffle_localDeploy
+```
+
+Si ya lo clonaste sin --recurse-submodules, ejecuta:
+
+```bash
+git submodule update --init --recursive
+```
+
+2. Construir y correr los contenedores
+```bash
+docker-compose up --build
+```
+
+Esto levantará los siguientes servicios:
+
+🎧 Frontend: http://localhost:3000
+
+⚙️ Backend API: http://localhost:8000
+
+🛢️ MongoDB: mongodb://localhost:27017
+
+📁 Estructura del proyecto
+```bash
+TuneShuffle_localDeploy/
+├── docker-compose.yml           # Configuración de servicios
+├── FrontEnd/                    # Submódulo con el cliente (Next.js)
+└── Backend/                     # Submódulo con el servidor (FastAPI)
+```
+
+🧼 Detener los contenedores
+Presiona Ctrl + C en la terminal o ejecuta:
+
+```bash
+docker-compose down
+```
